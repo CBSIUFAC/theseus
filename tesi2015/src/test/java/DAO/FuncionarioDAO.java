@@ -35,13 +35,15 @@ public class FuncionarioDAO extends MasterDAO{
 		return buscarLista("from Funcionario f where f.nome like :"+nome+";");
 	}
 	
-	public List<Funcionario> listarFuncionario(){
+	public List<Funcionario> listarFuncionario(String str){
 		Session s = getSession();
 		s.beginTransaction();
-		Query qr = s.createQuery("from Funcionario f");
-		List<Funcionario> listarFuncionario = qr.list();
+		Query qr = s.createQuery("from Funcionario f where f.nome like :func");
+		qr.setParameter("func","%"+str+"%");
+		List<Funcionario> listaFuncionario = qr.list();
+		s.getTransaction().commit();
 		s.close();
-		return listarFuncionario;
+		return listaFuncionario;
 	}
 
 }

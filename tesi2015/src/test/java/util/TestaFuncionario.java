@@ -22,10 +22,13 @@ public class TestaFuncionario {
 //		f = funcionarioDAO.buscarFuncionario(3);
 //		funcionarioDAO.deletarFuncionario(f);
 
-		List<Funcionario> funcionarios = funcionarioDAO.listarFuncionario();
+		String str = "j";
+		List<Funcionario> funcionarios = funcionarioDAO.listarFuncionario(str);
 		for (Funcionario funcionario : funcionarios) {
 			System.out.println(funcionario.getNome());
 		}
+		
+		System.out.println(funcionarioDAO.buscarFuncionario(1).getNome());
 		
 	}
 
