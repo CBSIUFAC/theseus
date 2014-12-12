@@ -25,16 +25,17 @@ public class FuncionarioDAO extends MasterDAO{
 		deletarObjeto(funcionario);
 	}
 
-	//	buscar Funcionário
+	//	buscar funcionário
 	public Funcionario buscarFuncionario(int idFuncionario){
 		return buscarObjeto(Funcionario.class, idFuncionario);
 	}
 
-	//	buscar Funcionários por Nome
+	//	buscar funcionários por Nome
 	public List<Serializable> buscarFuncionarios(String nome){
 		return buscarLista("from Funcionario f where f.nome like :"+nome+";");
 	}
-	
+
+	//	listar funcionarios
 	public List<Funcionario> listarFuncionario(String str){
 		Session s = getSession();
 		s.beginTransaction();
